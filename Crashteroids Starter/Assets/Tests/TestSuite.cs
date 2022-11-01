@@ -43,6 +43,16 @@ namespace Tests
 
             Assert.True(game.isGameOver);
         }
-    }
 
+        [UnityTest]
+        public IEnumerator NewGameRestartsGame()
+        {
+            //1
+            game.isGameOver = true;
+            game.NewGame();
+            //2
+            Assert.False(game.isGameOver);
+            yield return null;
+        }
+    }
 }
